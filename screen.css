@@ -1,0 +1,104 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: Roboto;
+  width: 100%;
+  background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+}
+
+.detail {
+  width: 80%;
+  height: 65%;
+  margin: auto;
+}
+
+.weather-forecast {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 2em;
+
+  transition: 0.3s;
+}
+
+.description {
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  position: relative;
+  margin-top: 2px;
+}
+
+.description i {
+  font-size: 4em;
+  margin-top: 0.3em;
+  text-shadow: 5px 2px 2px;
+}
+
+.city {
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-top: 0.5em;
+}
+.temp {
+  font-size: 48px;
+  font-weight: 700;
+  margin-top: 0.1em;
+}
+
+.list {
+  position: absolute;
+  bottom: 0;
+  width: 45%;
+  height: 30%;
+  background: #faf7f5;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 30px 30px 0px 0px;
+}
+.weather-form,
+.button {
+  text-align: center;
+  margin-top: 60px;
+}
+.weather-form {
+  font-size: 25px;
+  color: #5b4d68;
+  text-align: center;
+}
+
+.knoppen {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+}
+
+.button {
+  padding: 0.4em 1em;
+  border: none;
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(to right, #6c5b7b, #c06c84);
+  width: 20px;
+  height: 20px;
+  transition: 0.2s;
+}
+.button:hover {
+  background: linear-gradient(to right, #5b4d68, #a05b6e);
+}
+.button:focus {
+  outline: none;
+}
