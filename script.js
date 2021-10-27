@@ -85,17 +85,7 @@ let showResultWeather = (queryResponse) => {
   console.log(queryResponse[0].WeatherText);
   const temp = document.querySelector('.temp');
   let temperatuur = queryResponse[0].Temperature.Metric.Value;
-  //   console.log(temp);
   temp.innerHTML = `${temperatuur}`;
-
-  // console.log(queryResponse.WeatherText);
-
-  // const temp = document.querySelector('.temp');
-
-  // let temperatuur = queryResponse.Temperature;
-  // //   console.log(temp);
-
-  // temp.innerHTML = `${temperatuur}`;
 };
 
 let showResultLocation = (queryResponse) => {
@@ -103,20 +93,11 @@ let showResultLocation = (queryResponse) => {
   const city = document.querySelector('.js-city');
   let cityName = queryResponse.EnglishName;
   city.innerHTML = `${cityName}`;
-
-  // console.log(queryResponse.Name);
-
-  // const city = document.querySelector('.js-city');
-
-  // let cityName = queryResponse.Name;
-
-  // city.innerHTML = `${cityName}`;
 };
 
 let getAPIWeather = async (location) => {
   let key = '0lmagZR3gu9O2bu19fD1nE0w7laTeRHZ';
   url = `http://dataservice.accuweather.com/currentconditions/v1/${location}?apikey=${key}`;
-
   console.log(url);
 
   const request = await fetch(`${url}`);
@@ -147,6 +128,7 @@ function click_btn() {
     getAPILocation(locationNr);
     return locationNr;
   });
+
   const knop = document.querySelector('.js_previous');
   console.log(knop);
   knop.addEventListener('click', function () {
