@@ -29,13 +29,11 @@ html {
   margin: 0 auto;
   max-width: 550px;
   height: 100vh;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
 
+  /* CSS Grid */
   display: grid;
-  grid-template-columns: 50px 50px 50px;
-  grid-template-rows: [row1-start] 30% [row1-end] 55% [third-line] auto [last-line];
+  grid-template-columns: 50px;
+  grid-template-rows: [row1-start] 30% [row1-end] 50% [third-line] auto [last-line];
   grid-template-areas:
     'header header header header'
     'main main main main'
@@ -43,10 +41,13 @@ html {
 }
 
 .header {
-  height: 65%;
   width: 100%;
   margin: 0;
   grid-area: header;
+}
+
+.logo {
+  width: 150px;
 }
 
 .weather-forecast {
@@ -54,10 +55,9 @@ html {
   color: var(--global-text-color);
   background: var(--global-background-color);
   border-radius: 0 0 30px 30px;
-  width: 100%;
   height: 10%;
   margin: auto;
-  padding: 20px;
+  padding: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,7 +65,7 @@ html {
 }
 
 .temp {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -96,4 +96,17 @@ html {
 }
 .button:hover {
   fill: var(--global-hover-btn-color);
+}
+
+@media only screen and (min-width: 600px) {
+  .c-app {
+    grid-template-columns: 550px;
+    grid-template-rows: [row1-start] 30% [row1-end] 55% [third-line] auto [last-line];
+  }
+  .logo {
+    width: 175px;
+  }
+  .temp {
+    font-size: 20px;
+  }
 }
