@@ -81,11 +81,19 @@ let locationNr = 31810;
 //   DataSets: ['AirQualityCurrentConditions', 'AirQualityForecasts', 'Alerts', 'ForecastConfidence', 'FutureRadar', 'MinuteCast', 'Radar'],
 // };
 
-let showResultWeather = (queryResponse) => {
+let showResultWeather = (queryResponse, queryL) => {
+  console.log(queryResponse);
+  console.log(queryL);
   console.log(queryResponse[0].WeatherText);
   const temp = document.querySelector('.temp');
   let temperatuur = queryResponse[0].Temperature.Metric.Value;
   temp.innerHTML = `${temperatuur}`;
+
+  console.log(queryL.EnglishName);
+  console.log(' ');
+  const city = document.querySelector('.js-city');
+  let cityName = queryL.EnglishName;
+  city.innerHTML = `${cityName}`;
 };
 
 let showResultLocation = (queryResponse) => {
@@ -103,19 +111,25 @@ let getAPIWeather = async (location) => {
   const request = await fetch(`${url}`);
   const result = await request.json();
 
-  showResultWeather(result);
-};
-
-let getAPILocation = async (location) => {
-  let key = '0lmagZR3gu9O2bu19fD1nE0w7laTeRHZ';
   locationUrl = `http://dataservice.accuweather.com/locations/v1/${location}?apikey=${key}`;
   console.log(locationUrl);
 
-  const request = await fetch(`${locationUrl}`);
-  const result = await request.json();
+  const requestL = await fetch(`${locationUrl}`);
+  const resultL = await requestL.json();
 
-  showResultLocation(result);
+  showResultWeather(result, resultL);
 };
+
+// let getAPILocation = async (location) => {
+//   let key = '0lmagZR3gu9O2bu19fD1nE0w7laTeRHZ';
+//   locationUrl = `http://dataservice.accuweather.com/locations/v1/${location}?apikey=${key}`;
+//   console.log(locationUrl);
+
+//   const request = await fetch(`${locationUrl}`);
+//   const result = await request.json();
+
+//   showResultLocation(result);
+// };
 
 function click_btn() {
   const btn = document.querySelector('.js_next');
@@ -124,8 +138,8 @@ function click_btn() {
     console.log('geklikt');
     locationNr += 1;
     console.log(locationNr);
+    // getAPILocation(locationNr);
     getAPIWeather(locationNr);
-    getAPILocation(locationNr);
     return locationNr;
   });
 
@@ -136,14 +150,14 @@ function click_btn() {
     locationNr -= 1;
     console.log(locationNr);
     getAPIWeather(locationNr);
-    getAPILocation(locationNr);
+    // getAPILocation(locationNr);
     return locationNr;
   });
 }
 
 function setup() {
   getAPIWeather(locationNr);
-  getAPILocation(locationNr);
+  // getAPILocation(locationNr);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
