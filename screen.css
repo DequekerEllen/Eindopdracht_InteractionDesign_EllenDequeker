@@ -29,10 +29,9 @@ html {
   max-width: 570px;
   overflow: hidden;
   height: 100vh;
-
   /* CSS Grid */
   display: grid;
-  grid-template-columns: 50px;
+  grid-template-columns: 0px;
   grid-template-rows: [row1-start] 15% [row1-end] 50% [third-line] auto [last-line];
   grid-template-areas:
     'header header header header'
@@ -80,6 +79,7 @@ html {
 .controls {
   width: 90%;
   height: 25%;
+  margin-top: 40px;
   margin-bottom: 5px;
   display: flex;
   flex-flow: wrap;
@@ -107,18 +107,17 @@ html {
   position: absolute;
   z-index: 1;
   width: 80%;
-  height: 20%;
-  top: 90px;
+  top: 85px;
   margin: 0 auto;
 }
 
 .drop {
   position: absolute;
-  bottom: 100%;
+  bottom: 200%;
   width: 15px;
-  height: 120px;
+  height: 70px;
   pointer-events: none;
-  animation: drop 0.5s linear infinite;
+  animation: drop 2s linear infinite;
 }
 
 .stem {
@@ -126,7 +125,7 @@ html {
   height: 60%;
   margin-left: 7px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
-  animation: stem 0.5s linear infinite;
+  animation: stem 2s linear infinite;
 }
 
 .splat {
@@ -136,8 +135,8 @@ html {
   border-radius: 50%;
   opacity: 1;
   transform: scale(0);
-  animation: splat 0.5s linear infinite;
-  display: none;
+  animation: splat 2s linear infinite;
+  position: absolute;
 }
 
 body.splat-toggle .splat {
@@ -147,6 +146,7 @@ body.splat-toggle .splat {
 .cloud {
   width: 200px;
   height: 60px;
+  top: 55px;
   background: #fff;
 
   border-radius: 200px;
@@ -180,6 +180,13 @@ body.splat-toggle .splat {
 
 .x1 {
   animation: moveclouds 15s linear infinite;
+}
+
+.x2 {
+  left: 200px;
+  transform: scale(0.6);
+  opacity: 0.6; /*opacity proportional to the size*/
+  animation: moveclouds 25s linear infinite;
 }
 
 /* KEYFRAMES */
@@ -247,7 +254,7 @@ body.splat-toggle .splat {
 @media only screen and (min-width: 600px) {
   .c-app {
     grid-template-columns: 550px;
-    grid-template-rows: [row1-start] 30% [row1-end] 55% [third-line] auto [last-line];
+    grid-template-rows: [row1-start] 12% [row1-end] 70% [third-line] auto [last-line];
   }
   .logo {
     width: 175px;
