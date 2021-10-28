@@ -7,9 +7,7 @@
 
     <link rel="stylesheet" href="screen.css">
 
-    <link rel="icon" href="/Images/weather.svg" type="image/x-icon">
-    <script src="script.js"></script>
-    
+    <link rel="icon" href="/Images/weather.svg" type="image/x-icon">    
 
     <title>Weathr</title>
 </head>
@@ -61,7 +59,10 @@
             <div class="temp">12°C</div>
           </div>
         </div>
-        <div class="content"></div>
+        <div class="content">
+          <div class="rain front-row "></div>
+
+        </div>
         <div class="controls">
           <div class="knoppen">
             <svg class="button js_previous" id="Laag_1" data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 409.6 409.6" width="20px">
@@ -82,5 +83,7 @@
           </div>
         </div>
     </main>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
