@@ -34,9 +34,9 @@ let showResultWeather = (queryResponse, queryL) => {
   let temperatuur = queryResponse[0].Temperature.Metric.Value;
   temp.innerHTML = `${temperatuur} °C`;
 
-  // if (queryResponse[0].WeatherText == 'Mostly cloudy') {
-  //   makeItRain();
-  // }
+  if (queryResponse[0].WeatherText == 'Cloudy') {
+    makeItRain();
+  }
 
   console.log(queryL.EnglishName);
   console.log(' ');
