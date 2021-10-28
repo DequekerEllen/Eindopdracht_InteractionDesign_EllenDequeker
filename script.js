@@ -33,7 +33,7 @@ let showResultWeather = (queryResponse, queryL) => {
   const temp = document.querySelector('.temp');
   let temperatuur = queryResponse[0].Temperature.Metric.Value;
   temp.innerHTML = `${temperatuur} °C`;
-
+  makeItRain();
   if (queryResponse[0].WeatherText == 'Cloudy') {
     makeItRain();
   }

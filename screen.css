@@ -4,8 +4,6 @@
   --global-background-color: #223843;
   --global-text-color: rgba(255, 255, 255, 0.9);
 
-  /* opacity */
-
   /* transitions */
   --global-hover-btn-color: #1e2d35;
 }
@@ -28,13 +26,14 @@ html {
 
 .c-app {
   margin: 0 auto;
-  max-width: 550px;
+  max-width: 570px;
+  overflow: hidden;
   height: 100vh;
 
   /* CSS Grid */
   display: grid;
   grid-template-columns: 50px;
-  grid-template-rows: [row1-start] 30% [row1-end] 50% [third-line] auto [last-line];
+  grid-template-rows: [row1-start] 15% [row1-end] 50% [third-line] auto [last-line];
   grid-template-areas:
     'header header header header'
     'main main main main'
@@ -42,7 +41,7 @@ html {
 }
 
 .header {
-  width: 100%;
+  width: 90%;
   margin: 0;
   grid-area: header;
   z-index: 10;
@@ -73,10 +72,13 @@ html {
 }
 
 .content {
+  width: 90%;
+  overflow: hidden;
   grid-area: main;
 }
 
 .controls {
+  width: 90%;
   height: 25%;
   margin-bottom: 5px;
   display: flex;
@@ -102,11 +104,12 @@ html {
 }
 
 .rain {
-  width: 37%;
   position: absolute;
   z-index: 1;
-  left: 30%;
-  top: 0;
+  width: 80%;
+  height: 20%;
+  top: 90px;
+  margin: 0 auto;
 }
 
 .drop {
@@ -118,39 +121,12 @@ html {
   animation: drop 0.5s linear infinite;
 }
 
-@keyframes drop {
-  0% {
-    transform: translateY(0vh);
-  }
-  75% {
-    transform: translateY(90vh);
-  }
-  100% {
-    transform: translateY(90vh);
-  }
-}
-
 .stem {
   width: 1px;
   height: 60%;
   margin-left: 7px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
   animation: stem 0.5s linear infinite;
-}
-
-@keyframes stem {
-  0% {
-    opacity: 1;
-  }
-  65% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 
 .splat {
@@ -166,6 +142,73 @@ html {
 
 body.splat-toggle .splat {
   display: block;
+}
+
+.cloud {
+  width: 200px;
+  height: 60px;
+  background: #fff;
+
+  border-radius: 200px;
+
+  position: relative;
+}
+
+.cloud:before,
+.cloud:after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+
+  border-radius: 100px;
+
+  transform: rotate(30deg);
+}
+
+.cloud:after {
+  width: 120px;
+  height: 120px;
+  top: -55px;
+  left: auto;
+  right: 15px;
+}
+
+.x1 {
+  animation: moveclouds 15s linear infinite;
+}
+
+/* KEYFRAMES */
+
+@keyframes drop {
+  0% {
+    transform: translateY(0vh);
+  }
+  75% {
+    transform: translateY(90vh);
+  }
+  100% {
+    transform: translateY(90vh);
+  }
+}
+
+@keyframes stem {
+  0% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes splat {
@@ -186,6 +229,20 @@ body.splat-toggle .splat {
     transform: scale(1.5);
   }
 }
+
+@keyframes moveclouds {
+  0% {
+    left: 300px;
+  }
+  50% {
+    left: 0px;
+  }
+  100% {
+    left: 300px;
+  }
+}
+
+/* MEDIA QUERIES */
 
 @media only screen and (min-width: 600px) {
   .c-app {
