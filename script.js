@@ -6,28 +6,40 @@ var LightRain = function () {
   //clear out everything
   $('.rain').empty();
 
-  var increment = 0;
+  var druppelsVak = 0;
   var drops = '';
   var clouds = '';
 
-  while (increment < 100) {
+  while (druppelsVak < 100) {
     //couple random numbers to use for various randomizations
     //random number between 98 and 1
     var randoHundo = Math.floor(Math.random() * (98 - 1 + 1) + 1);
     //random number between 5 and 2
-    var randoFiver = Math.floor(Math.random() * (5 - 2 + 1) + 2);
+    var randomNrLeft = Math.floor(Math.random() * (5 - 2 + 1) + 2);
     //increment
-    increment += randoFiver;
+    druppelsVak += randomNrLeft;
     //add in a new raindrop with various randomizations to certain CSS properties
 
     clouds = '<div class="cloud x1"><div class="rain"></div></div>';
     clouds += '<div class="cloud x2" ><div class="rain"></div></div>';
     clouds += '<div class="cloud x3"><div class="rain"></div></div>';
 
-    drops += '<div class="drop" style="left: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 1.' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.' + randoHundo + 's;"></div></div>';
+    drops += '<div class="drop" style="left: ' + druppelsVak + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 1.' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.' + randoHundo + 's;"></div></div>';
   }
   $('.clouds').append(clouds);
   $('.rain').append(drops);
+};
+
+var Cloudy = function () {
+  //clear out everything
+
+  var clouds = '';
+
+  clouds = '<div class="cloud x1"></div></div>';
+  clouds += '<div class="cloud x2" ></div></div>';
+  clouds += '<div class="cloud x3"></div></div>';
+
+  $('.clouds').append(clouds);
 };
 
 let showResultWeather = (queryResponse, queryL) => {
@@ -49,7 +61,7 @@ let showResultWeather = (queryResponse, queryL) => {
     clouds.innerHTML = '';
     document.body.style.background = 'linear-gradient(to bottom, #aca7aa, #888286)';
 
-    // Cloudy();
+    Cloudy();
   }
   if (queryResponse[0].WeatherText == 'Sunny') {
     const clouds = document.querySelector('.clouds');
