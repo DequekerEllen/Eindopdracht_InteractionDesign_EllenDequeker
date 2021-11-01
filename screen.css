@@ -1,6 +1,6 @@
 :root {
   /* colors */
-  --global-page-background-color: #dbd3d8;
+  --global-page-background-color: linear-gradient(to bottom, #dbd3d8, #e4e0e2);
   --global-background-color: #223843;
   --global-text-color: rgba(255, 255, 255, 0.9);
 
@@ -43,7 +43,6 @@ html {
   width: 90%;
   margin: 0;
   grid-area: header;
-  z-index: 10;
 }
 
 .logo {
@@ -128,29 +127,16 @@ html {
   animation: stem 2s linear infinite;
 }
 
-.splat {
-  width: 15px;
-  height: 10px;
-  border-top: 2px dotted rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  opacity: 1;
-  transform: scale(0);
-  animation: splat 2s linear infinite;
-  position: absolute;
-}
-
-body.splat-toggle .splat {
-  display: block;
+.clouds {
 }
 
 .cloud {
   width: 200px;
   height: 60px;
   top: 55px;
-  background: #fff;
-
+  background: rgb(202, 202, 202);
+  box-shadow: 0px 0px 30px 5px #1e2d3573;
   border-radius: 200px;
-
   position: relative;
 }
 
@@ -158,15 +144,14 @@ body.splat-toggle .splat {
 .cloud:after {
   content: '';
   position: absolute;
-  background: #fff;
+  background: rgb(202, 202, 202);
   width: 100px;
   height: 80px;
   position: absolute;
+  z-index: 10;
   top: -15px;
   left: 10px;
-
   border-radius: 100px;
-
   transform: rotate(30deg);
 }
 
@@ -179,14 +164,19 @@ body.splat-toggle .splat {
 }
 
 .x1 {
-  animation: moveclouds 15s linear infinite;
+  animation: moveclouds 13s linear infinite;
 }
 
 .x2 {
-  left: 200px;
-  transform: scale(0.6);
-  opacity: 0.6; /*opacity proportional to the size*/
-  animation: moveclouds 25s linear infinite;
+  top: 50px;
+  transform: scale(1);
+  animation: moveclouds 18s linear infinite;
+}
+
+.x3 {
+  top: 90px;
+  transform: scale(0.7);
+  animation: moveclouds 15s linear infinite;
 }
 
 /* KEYFRAMES */
@@ -218,34 +208,15 @@ body.splat-toggle .splat {
   }
 }
 
-@keyframes splat {
-  0% {
-    opacity: 1;
-    transform: scale(0);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(0);
-  }
-  90% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-}
-
 @keyframes moveclouds {
   0% {
-    left: 300px;
+    left: 270px;
   }
   50% {
-    left: 0px;
+    left: 30px;
   }
   100% {
-    left: 300px;
+    left: 270px;
   }
 }
 
