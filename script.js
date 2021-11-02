@@ -31,9 +31,9 @@ var Cloudy = function () {
   var clouds = '';
   var cloudsDiv = '<div class="clouds"></div>';
 
-  clouds = ' <div class="cloud x1"></div></div>';
-  clouds += '<div class="cloud x2" ></div></div>';
-  clouds += '<div class="cloud x3"></div></div>';
+  clouds = ' <div class="cloud x1"></div>';
+  clouds += '<div class="cloud x2" ></div>';
+  clouds += '<div class="cloud x3"></div>';
 
   $('.weather').append(cloudsDiv);
   $('.clouds').append(clouds);
@@ -58,6 +58,65 @@ var Sunny = function () {
   document.body.style.background = 'linear-gradient(to bottom, #dbd3d8, #e4e0e2)';
 };
 
+var PartlySunny = function () {
+  var clouds = '';
+  var cloudsDiv = '<div class="clouds"></div>';
+
+  cloud = ' <div class="cloud x1"></div>';
+
+  var sunRays = '';
+  var sunDiv = '<div class="sun"><div class="sunbeams"></div></div>';
+
+  sunRays = '<div class="sunRay s1"></div></div>';
+  sunRays += '<div class="sunRay s2"></div></div>';
+  sunRays += '<div class="sunRay s3"></div></div>';
+  sunRays += '<div class="sunRay s4"></div></div>';
+  sunRays += '<div class="sunRay s5"></div></div>';
+  sunRays += '<div class="sunRay s6"></div></div>';
+
+  $('.weather').append(cloudsDiv);
+  $('.clouds').append(cloud);
+  $('.cloud').append(sunDiv);
+  $('.sunbeams').append(sunRays);
+  document.querySelector('.sun').style.top = '-70px';
+  document.querySelector('.sun').style.left = '-50px';
+  document.body.style.background = 'linear-gradient(to bottom, #dbd3d8, #e4e0e2)';
+};
+
+var MostlyCloudy = function () {
+  var clouds = '';
+  var cloudsDiv = '<div class="clouds"></div>';
+
+  clouds = ' <div class="cloud x1"></div>';
+
+  var sunRays = '';
+  var sunDiv = '<div class="sun"><div class="sunbeams"></div></div>';
+
+  sunRays = '<div class="sunRay s1"></div></div>';
+  sunRays += '<div class="sunRay s2"></div></div>';
+  sunRays += '<div class="sunRay s3"></div></div>';
+  sunRays += '<div class="sunRay s4"></div></div>';
+  sunRays += '<div class="sunRay s5"></div></div>';
+  sunRays += '<div class="sunRay s6"></div></div>';
+
+  $('.weather').append(cloudsDiv);
+  $('.clouds').append(clouds);
+  $('.cloud').append(sunDiv);
+  $('.sunbeams').append(sunRays);
+
+  clouds = '<div class="cloud x2"></div>';
+  $('.clouds').append(clouds);
+  clouds = '<div class="cloud x3"></div>';
+  $('.clouds').append(clouds);
+
+  document.querySelector('.sun').style.top = '-70px';
+  document.querySelector('.sun').style.left = '-50px';
+  document.querySelector('.x2').style.top = '60px';
+  document.querySelector('.x3').style.top = '-40px';
+
+  document.body.style.background = 'linear-gradient(to bottom, #dbd3d8, #e4e0e2)';
+};
+
 let showResultWeather = (queryResponse, queryL) => {
   console.log(queryResponse[0]);
   console.log(queryL);
@@ -75,6 +134,16 @@ let showResultWeather = (queryResponse, queryL) => {
     const weather = document.querySelector('.weather');
     weather.innerHTML = '';
     Cloudy();
+  }
+  if (queryResponse[0].WeatherText == 'Mostly cloudy') {
+    const weather = document.querySelector('.weather');
+    weather.innerHTML = '';
+    MostlyCloudy();
+  }
+  if (queryResponse[0].WeatherText == 'Partly sunny') {
+    const weather = document.querySelector('.weather');
+    weather.innerHTML = '';
+    PartlySunny();
   }
   if (queryResponse[0].WeatherText == 'Sunny') {
     const weather = document.querySelector('.weather');
@@ -141,5 +210,4 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log('**** Loaded ****');
   setup();
   click_btn();
-  // LightRain();
 });
