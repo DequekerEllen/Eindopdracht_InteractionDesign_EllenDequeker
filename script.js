@@ -6,40 +6,56 @@ var LightRain = function () {
   //clear out everything
   $('.rain').empty();
 
-  var druppelsVak = 0;
   var drops = '';
   var clouds = '';
+  var cloudsDiv = '<div class="clouds"></div>';
 
-  while (druppelsVak < 100) {
-    //couple random numbers to use for various randomizations
-    //random number between 98 and 1
-    var randoHundo = Math.floor(Math.random() * (98 - 1 + 1) + 1);
-    //random number between 5 and 2
-    var randomNrLeft = Math.floor(Math.random() * (5 - 2 + 1) + 2);
-    //increment
-    druppelsVak += randomNrLeft;
-    //add in a new raindrop with various randomizations to certain CSS properties
+  clouds = '<div class="cloud x1"><div class="rain"></div></div>';
+  clouds += '<div class="cloud x2" ><div class="rain"></div></div>';
+  clouds += '<div class="cloud x3"><div class="rain"></div></div>';
 
-    clouds = '<div class="cloud x1"><div class="rain"></div></div>';
-    clouds += '<div class="cloud x2" ><div class="rain"></div></div>';
-    clouds += '<div class="cloud x3"><div class="rain"></div></div>';
+  drops = '<div class="drops drops1"></div>';
+  drops += '<div class="drops drops2"></div>';
+  drops += '<div class="drops drops3"></div>';
+  drops += '<div class="drops drops4"></div>';
 
-    drops += '<div class="drop" style="left: ' + druppelsVak + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 1.' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.' + randoHundo + 's;"></div></div>';
-  }
+  $('.weather').append(cloudsDiv);
   $('.clouds').append(clouds);
   $('.rain').append(drops);
+  document.body.style.background = 'linear-gradient(to bottom, #aca7aa, #888286)';
 };
 
 var Cloudy = function () {
   //clear out everything
 
   var clouds = '';
+  var cloudsDiv = '<div class="clouds"></div>';
 
-  clouds = '<div class="cloud x1"></div></div>';
+  clouds = ' <div class="cloud x1"></div></div>';
   clouds += '<div class="cloud x2" ></div></div>';
   clouds += '<div class="cloud x3"></div></div>';
 
+  $('.weather').append(cloudsDiv);
   $('.clouds').append(clouds);
+  document.body.style.background = 'linear-gradient(to bottom, #aca7aa, #888286)';
+};
+
+var Sunny = function () {
+  //clear out everything
+
+  var sunRays = '';
+  var sunDiv = '<div class="sun"><div class="sunbeams"></div></div>';
+
+  sunRays = '<div class="sunRay s1"></div></div>';
+  sunRays += '<div class="sunRay s2"></div></div>';
+  sunRays += '<div class="sunRay s3"></div></div>';
+  sunRays += '<div class="sunRay s4"></div></div>';
+  sunRays += '<div class="sunRay s5"></div></div>';
+  sunRays += '<div class="sunRay s6"></div></div>';
+
+  $('.weather').append(sunDiv);
+  $('.sunbeams').append(sunRays);
+  document.body.style.background = 'linear-gradient(to bottom, #dbd3d8, #e4e0e2)';
 };
 
 let showResultWeather = (queryResponse, queryL) => {
@@ -51,23 +67,19 @@ let showResultWeather = (queryResponse, queryL) => {
   temp.innerHTML = `${temperatuur} °C`;
 
   if (queryResponse[0].WeatherText == 'Light rain') {
-    const clouds = document.querySelector('.clouds');
-    clouds.innerHTML = '';
-    document.body.style.background = 'linear-gradient(to bottom, #aca7aa, #888286)';
+    const weather = document.querySelector('.weather');
+    weather.innerHTML = '';
     LightRain();
   }
   if (queryResponse[0].WeatherText == 'Cloudy') {
-    const clouds = document.querySelector('.clouds');
-    clouds.innerHTML = '';
-    document.body.style.background = 'linear-gradient(to bottom, #aca7aa, #888286)';
-
+    const weather = document.querySelector('.weather');
+    weather.innerHTML = '';
     Cloudy();
   }
   if (queryResponse[0].WeatherText == 'Sunny') {
-    const clouds = document.querySelector('.clouds');
-    clouds.innerHTML = '';
-    document.body.style.background = 'linear-gradient(to bottom, #dbd3d8, #e4e0e2)';
-    // Sunny();
+    const weather = document.querySelector('.weather');
+    weather.innerHTML = '';
+    Sunny();
   }
 
   console.log(queryL.EnglishName);
@@ -129,5 +141,5 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log('**** Loaded ****');
   setup();
   click_btn();
-  Cloudy();
+  // LightRain();
 });
