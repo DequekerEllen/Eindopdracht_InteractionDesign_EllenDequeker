@@ -7,7 +7,7 @@
 
   /* Shadow */
   --global-box-shadow-header: 3px 3px 5px 0px #1e2d35a4;
-  --global-bax-shadow-cloud: 0px 0px 30px 5px #1e2d3573;
+  --global-box-shadow-cloud: -10px 0px 30px 3px #1e2d3573;
 
   /* transitions */
   --global-hover-btn-color: #1e2d35;
@@ -142,7 +142,7 @@ html {
   height: 60px;
   top: 55px;
   background: var(--global-cloud-color);
-  box-shadow: var(--global-bax-shadow-cloud);
+  box-shadow: var(--global-box-shadow-cloud);
   border-radius: 200px;
   position: relative;
 }
@@ -171,19 +171,22 @@ html {
 }
 
 .x1 {
-  animation: moveclouds 13s linear infinite;
+  top: 170px;
+  transform: scale(1);
+  animation: moveclouds 10s linear infinite;
 }
 
 .x2 {
-  top: 50px;
+  top: 10px;
   transform: scale(1);
-  animation: moveclouds 18s linear infinite;
+  animation: moveclouds 4s linear infinite;
 }
 
 .x3 {
-  top: 90px;
+  top: 80px;
   transform: scale(0.7);
-  animation: moveclouds 15s linear infinite;
+  z-index: 11;
+  animation: moveclouds 6s linear infinite;
 }
 
 /* KEYFRAMES */
@@ -217,13 +220,13 @@ html {
 
 @keyframes moveclouds {
   0% {
-    left: 270px;
+    left: 100px;
   }
   50% {
     left: 30px;
   }
   100% {
-    left: 270px;
+    left: 100px;
   }
 }
 
@@ -245,5 +248,31 @@ html {
     height: 25%;
     margin-top: 40px;
     margin-bottom: 2px;
+  }
+  @keyframes moveclouds {
+    0% {
+      left: 270px;
+    }
+    50% {
+      left: 30px;
+    }
+    100% {
+      left: 270px;
+    }
+  }
+  .x1 {
+    animation: moveclouds 13s linear infinite;
+  }
+
+  .x2 {
+    top: 50px;
+    transform: scale(1);
+    animation: moveclouds 18s linear infinite;
+  }
+
+  .x3 {
+    top: 90px;
+    transform: scale(0.7);
+    animation: moveclouds 15s linear infinite;
   }
 }

@@ -86,13 +86,13 @@ let showResultLocation = (queryResponse) => {
 
 let getAPIWeather = async (location) => {
   let key = '0lmagZR3gu9O2bu19fD1nE0w7laTeRHZ';
-  url = `http://dataservice.accuweather.com/currentconditions/v1/${location}?apikey=${key}`;
+  url = `https://dataservice.accuweather.com/currentconditions/v1/${location}?apikey=${key}`;
   console.log(url);
 
   const request = await fetch(`${url}`);
   const result = await request.json();
 
-  locationUrl = `http://dataservice.accuweather.com/locations/v1/${location}?apikey=${key}`;
+  locationUrl = `https://dataservice.accuweather.com/locations/v1/${location}?apikey=${key}`;
   console.log(locationUrl);
 
   const requestL = await fetch(`${locationUrl}`);
@@ -129,4 +129,5 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log('**** Loaded ****');
   setup();
   click_btn();
+  Cloudy();
 });
