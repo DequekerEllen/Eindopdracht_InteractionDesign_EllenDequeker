@@ -110,6 +110,12 @@ html {
   text-align: center;
 }
 
+.country {
+  font-size: 10px;
+  padding-top: 3px;
+  color: #2238438d;
+}
+
 .button {
   transition: 0.2s;
   fill: var(--global-background-color);
@@ -163,6 +169,70 @@ html {
 }
 
 .drops4 {
+  position: absolute;
+  left: 130px;
+  animation-delay: 1.9s;
+  animation-duration: 0.7s;
+}
+
+/* RAIN */
+
+.snow {
+  position: absolute;
+  z-index: 1;
+  width: 80%;
+  top: 85px;
+  margin: 0 auto;
+}
+
+.snowflakes {
+  animation-name: snowflakes-fall;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  background-color: rgb(255, 255, 255);
+  box-shadow: var(--global-box-shadow-rain);
+  top: -40px;
+  border-radius: 50px;
+  height: 10px;
+  width: 10px;
+}
+
+@keyframes snowflakes-fall {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.151);
+
+    top: 200px;
+  }
+}
+
+.snowflake1 {
+  position: absolute;
+  left: 10px;
+  animation-delay: 1s;
+  animation-duration: 1s;
+}
+
+.snowflake2 {
+  position: absolute;
+  left: 50px;
+  animation-delay: 0.2s;
+  animation-duration: 1.2s;
+}
+
+.snowflake3 {
+  position: absolute;
+  left: 100px;
+  animation-delay: 1.5s;
+  animation-duration: 1.6s;
+}
+
+.snowflake4 {
   position: absolute;
   left: 130px;
   animation-delay: 1.9s;

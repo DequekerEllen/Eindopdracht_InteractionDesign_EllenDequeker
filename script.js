@@ -117,15 +117,42 @@ var MostlyCloudy = function () {
   document.body.style.background = 'linear-gradient(to bottom, #dbd3d8, #e4e0e2)';
 };
 
+var Snow = function () {
+  //clear out everything
+  $('.snow').empty();
+
+  var drops = '';
+  var clouds = '';
+  var cloudsDiv = '<div class="clouds"></div> ';
+
+  clouds = '<div class="cloud x1"><div class="snow"></div></div>';
+  clouds += '<div class="cloud x2" ><div class="snow"></div></div>';
+  clouds += '<div class="cloud x3"><div class="snow"></div></div>';
+
+  snowflakes = '<div class="snowflakes snowflake1"></div>';
+  snowflakes += '<div class="snowflakes snowflake2"></div>';
+  snowflakes += '<div class="snowflakes snowflake3"></div>';
+  snowflakes += '<div class="snowflakes snowflake4"></div>';
+
+  $('.weather').append(cloudsDiv);
+  $('.clouds').append(clouds);
+  $('.snow').append(snowflakes);
+  document.body.style.background = 'linear-gradient(to bottom, #aca7aa, #888286)';
+};
+
 let showResultWeather = (queryResponse, queryL) => {
   console.log(queryResponse[0]);
   console.log(queryL);
   console.log(queryResponse[0].WeatherText);
+
+  // Temperatuur in °C
   const temp = document.querySelector('.temp');
   let temperatuur = queryResponse[0].Temperature.Metric.Value;
+  temperatuur = Math.round(temperatuur, 0);
   temp.innerHTML = `${temperatuur} °C`;
 
-  if (queryResponse[0].WeatherText == 'Light rain') {
+  // Verschillende soorten weersomstandigheden
+  if ((queryResponse[0].WeatherText == 'Light rain', 'Showers', 'Rain')) {
     const weather = document.querySelector('.weather');
     weather.innerHTML = '';
     LightRain();
@@ -151,18 +178,14 @@ let showResultWeather = (queryResponse, queryL) => {
     Sunny();
   }
 
+  // Naam van de stad weergeven
   console.log(queryL.EnglishName);
-  console.log(' ');
   const city = document.querySelector('.js-city');
+  const country = document.querySelector('.js-country');
+  let countryName = queryL.Country.EnglishName;
   let cityName = queryL.EnglishName;
   city.innerHTML = `${cityName}`;
-};
-
-let showResultLocation = (queryResponse) => {
-  console.log(queryResponse.EnglishName);
-  const city = document.querySelector('.js-city');
-  let cityName = queryResponse.EnglishName;
-  city.innerHTML = `${cityName}`;
+  country.innerHTML = `${countryName}`;
 };
 
 let getAPIWeather = async (location) => {
@@ -182,11 +205,12 @@ let getAPIWeather = async (location) => {
   showResultWeather(result, resultL);
 };
 
+// Veranderen van stad
 function click_btn() {
   const btn = document.querySelector('.js_next');
   btn.addEventListener('click', function () {
-    console.log('geklikt');
-    locationNr += 5;
+    console.log('Next clicked');
+    locationNr += 3;
     console.log(locationNr);
     getAPIWeather(locationNr);
     return locationNr;
@@ -194,8 +218,8 @@ function click_btn() {
 
   const knop = document.querySelector('.js_previous');
   knop.addEventListener('click', function () {
-    console.log('geklikt');
-    locationNr -= 5;
+    console.log('Previous clicked');
+    locationNr -= 3;
     console.log(locationNr);
     getAPIWeather(locationNr);
     return locationNr;
@@ -209,5 +233,6 @@ function setup() {
 document.addEventListener('DOMContentLoaded', function () {
   console.log('**** Loaded ****');
   setup();
+  Snow();
   click_btn();
 });
