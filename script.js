@@ -2,7 +2,7 @@ let url, response, locationUrl;
 
 let locationNr = 31810;
 
-var LightRain = function () {
+var Rain = function () {
   //clear out everything
   $('.rain').empty();
 
@@ -22,7 +22,7 @@ var LightRain = function () {
   $('.weather').append(cloudsDiv);
   $('.clouds').append(clouds);
   $('.rain').append(drops);
-  document.body.style.background = 'linear-gradient(to bottom, #aca7aa, #888286)';
+  document.body.style.background = 'linear-gradient(to bottom, #9a9696, #6f6f6f)';
 };
 
 var Cloudy = function () {
@@ -59,7 +59,7 @@ var Sunny = function () {
 };
 
 var PartlySunny = function () {
-  var clouds = '';
+  var cloud = '';
   var cloudsDiv = '<div class="clouds"></div>';
 
   cloud = ' <div class="cloud x1"></div>';
@@ -80,7 +80,7 @@ var PartlySunny = function () {
   $('.sunbeams').append(sunRays);
   document.querySelector('.sun').style.top = '-70px';
   document.querySelector('.sun').style.left = '-50px';
-  document.body.style.background = 'linear-gradient(to bottom, #dbd3d8, #e4e0e2)';
+  document.body.style.background = 'linear-gradient(to bottom, #c0babe, #c3bec0)';
 };
 
 var MostlyCloudy = function () {
@@ -105,23 +105,22 @@ var MostlyCloudy = function () {
   $('.sunbeams').append(sunRays);
 
   clouds = '<div class="cloud x2"></div>';
-  $('.clouds').append(clouds);
-  clouds = '<div class="cloud x3"></div>';
+  clouds += '<div class="cloud x3"></div>';
   $('.clouds').append(clouds);
 
   document.querySelector('.sun').style.top = '-70px';
-  document.querySelector('.sun').style.left = '-50px';
+  document.querySelector('.sun').style.left = '-20px';
   document.querySelector('.x2').style.top = '60px';
   document.querySelector('.x3').style.top = '-40px';
 
-  document.body.style.background = 'linear-gradient(to bottom, #dbd3d8, #e4e0e2)';
+  document.body.style.background = 'linear-gradient(to bottom, #a39da1, #9c9799)';
 };
 
 var Snow = function () {
   //clear out everything
   $('.snow').empty();
 
-  var drops = '';
+  var snowflakes = '';
   var clouds = '';
   var cloudsDiv = '<div class="clouds"></div> ';
 
@@ -137,7 +136,29 @@ var Snow = function () {
   $('.weather').append(cloudsDiv);
   $('.clouds').append(clouds);
   $('.snow').append(snowflakes);
-  document.body.style.background = 'linear-gradient(to bottom, #aca7aa, #888286)';
+  document.body.style.background = 'linear-gradient(to bottom, #cbcaca, #a2a0a2)';
+};
+
+var Fog = function () {
+  //clear out everything
+  $('.fog').empty();
+
+  var foglines = '';
+  var clouds = '';
+  var cloudsDiv = '<div class="clouds"></div> ';
+
+  clouds = '<div class="cloud x1"><div class="fog"></div></div>';
+
+  foglines = '<div class="foglines fogline1"></div>';
+  foglines += '<div class="foglines fogline2"></div>';
+  foglines += '<div class="foglines fogline3"></div>';
+  foglines += '<div class="foglines fogline4"></div>';
+  foglines += '<div class="foglines fogline5"></div>';
+
+  $('.weather').append(cloudsDiv);
+  $('.clouds').append(clouds);
+  $('.fog').append(foglines);
+  document.body.style.background = 'linear-gradient(to bottom, #a8a8a8, #878587)';
 };
 
 let showResultWeather = (queryResponse, queryL) => {
@@ -152,10 +173,25 @@ let showResultWeather = (queryResponse, queryL) => {
   temp.innerHTML = `${temperatuur} °C`;
 
   // Verschillende soorten weersomstandigheden
-  if ((queryResponse[0].WeatherText == 'Light rain', 'Showers', 'Rain')) {
+  if (queryResponse[0].WeatherText == 'Light rain') {
     const weather = document.querySelector('.weather');
     weather.innerHTML = '';
-    LightRain();
+    Rain();
+  }
+  if (queryResponse[0].WeatherText == 'Showers') {
+    const weather = document.querySelector('.weather');
+    weather.innerHTML = '';
+    Rain();
+  }
+  if (queryResponse[0].WeatherText == 'Rain') {
+    const weather = document.querySelector('.weather');
+    weather.innerHTML = '';
+    Rain();
+  }
+  if (queryResponse[0].WeatherText == 'Snow') {
+    const weather = document.querySelector('.weather');
+    weather.innerHTML = '';
+    Snow();
   }
   if (queryResponse[0].WeatherText == 'Cloudy') {
     const weather = document.querySelector('.weather');
@@ -232,7 +268,7 @@ function setup() {
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('**** Loaded ****');
-  setup();
-  Snow();
-  click_btn();
+  // setup();
+  // click_btn();
+  PartlySunny();
 });

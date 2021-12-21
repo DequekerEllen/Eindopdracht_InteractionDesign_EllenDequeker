@@ -139,7 +139,7 @@ html {
   animation-name: drops;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  background-color: rgba(163, 163, 163, 0.7);
+  background-color: rgba(197, 197, 197, 0.807);
   box-shadow: var(--global-box-shadow-rain);
   top: -20px;
   border-radius: 10px;
@@ -175,7 +175,7 @@ html {
   animation-duration: 0.7s;
 }
 
-/* RAIN */
+/* SNOW */
 
 .snow {
   position: absolute;
@@ -195,20 +195,6 @@ html {
   border-radius: 50px;
   height: 10px;
   width: 10px;
-}
-
-@keyframes snowflakes-fall {
-  0% {
-    top: 0;
-  }
-  50% {
-    top: 50px;
-  }
-  100% {
-    background-color: rgba(255, 255, 255, 0.151);
-
-    top: 200px;
-  }
 }
 
 .snowflake1 {
@@ -237,6 +223,74 @@ html {
   left: 130px;
   animation-delay: 1.9s;
   animation-duration: 0.7s;
+}
+
+/* FOG */
+.snow {
+  position: absolute;
+  z-index: 1;
+  width: 80%;
+  top: 85px;
+  margin: 0 auto;
+  background-color: linear-gradient(to bottom, #a39da1, #9c9799);
+}
+
+.foglines {
+  background-color: #afc0bf;
+  box-shadow: var(--global-box-shadow-rain);
+  border-radius: 50px;
+}
+
+.fogline1 {
+  position: absolute;
+  width: 90%;
+  left: 10px;
+  height: 5px;
+  top: 65px;
+  animation: pan 10s forwards infinite;
+}
+
+.fogline2 {
+  position: absolute;
+  width: 25%;
+  height: 5px;
+  left: 5px;
+  top: 80px;
+  opacity: 0.7;
+  animation: pan 10s forwards infinite;
+  animation-delay: 1s;
+}
+
+.fogline3 {
+  position: absolute;
+  width: 60%;
+  height: 5px;
+  left: 40%;
+  top: 80px;
+  opacity: 0.7;
+  animation: pan 10s forwards infinite;
+  animation-delay: 1.4s;
+}
+
+.fogline4 {
+  position: absolute;
+  width: 70%;
+  height: 5px;
+  top: 95px;
+  opacity: 0.4;
+  animation: pan 10s forwards infinite;
+  animation-delay: 3s;
+}
+
+.fogline5 {
+  position: absolute;
+  width: 20%;
+  height: 5px;
+  left: 80%;
+  top: 95px;
+  opacity: 0.4;
+  animation: pan 10s forwards infinite;
+  animation-delay: 3.4s;
 }
 
 /* CLOUDS */
@@ -397,6 +451,29 @@ html {
   }
 }
 
+@keyframes snowflakes-fall {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 100px;
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.151);
+    top: 200px;
+  }
+}
+
+@keyframes pan {
+  0%,
+  100% {
+    transform: translateX(-8px);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
 @keyframes moveclouds {
   0% {
     left: 100px;
@@ -433,7 +510,7 @@ html {
       left: 270px;
     }
     50% {
-      left: 30px;
+      left: 55px;
     }
     100% {
       left: 270px;
