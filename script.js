@@ -50,6 +50,16 @@ var Sunny = function () {
   document.body.style.background = 'linear-gradient(to bottom, #dbd3d8, #e4e0e2)';
 };
 
+var Moon = function () {
+  //clear out everything
+
+  var moon = '';
+  var moon = '<div class="moon"><ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></div>';
+
+  $('.weather').append(moon);
+  document.body.style.background = 'linear-gradient(to bottom, #414043, #e4e0e2)';
+};
+
 var PartlySunny = function () {
   var cloud = '';
   var cloudsDiv = '<div class="clouds"></div>';
@@ -195,6 +205,11 @@ let showResultWeather = (queryResponse, queryL) => {
     const weather = document.querySelector('.weather');
     weather.innerHTML = '';
     Sunny();
+  }
+  if (queryResponse[0].WeatherText == 'Clear') {
+    const weather = document.querySelector('.weather');
+    weather.innerHTML = '';
+    Moon();
   }
 
   // Naam van de stad weergeven
