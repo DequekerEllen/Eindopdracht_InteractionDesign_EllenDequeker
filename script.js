@@ -43,18 +43,10 @@ var Cloudy = function () {
 var Sunny = function () {
   //clear out everything
 
-  var sunRays = '';
-  var sunDiv = '<div class="sun"><div class="sunbeams"></div></div>';
+  var sunny = '';
+  var sunny = '<div class="svg-contain"><svg version="1.1" class="clear-sky-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 72.3 52.6" style="enable-background:new 0 0 72.3 52.6;" xml:space="preserve"><g><path class="sun" d="M50.8,25.7c0,7.9-6.4,14.4-14.4,14.4s-14.4-6.4-14.4-14.4s6.4-14.4,14.4-14.4S50.8,17.8,50.8,25.7z"/><path  class="line big-path line-1" d="M54.5,25.8h6"/><path class="line big-path line-2" d="M12.4,25.8h6"/><path class="line big-path line-3" d="M36.5,44.3v6"/><path class="line big-path line-4" d="M36.5,8.2v-6"/><path class="line big-path line-5" d="M23,38.8l-4.8,4.8"/><path class="line big-path line-6" d="M54.9,8.9L50,13.8"/><path class="line big-path line-7" d="M50,38.8l4.4,4.4"/><path class="line big-path line-8" d="M18.8,9.6l4.2,4.2"/></g></svg></div>';
 
-  sunRays = '<div class="sunRay s1"></div></div>';
-  sunRays += '<div class="sunRay s2"></div></div>';
-  sunRays += '<div class="sunRay s3"></div></div>';
-  sunRays += '<div class="sunRay s4"></div></div>';
-  sunRays += '<div class="sunRay s5"></div></div>';
-  sunRays += '<div class="sunRay s6"></div></div>';
-
-  $('.weather').append(sunDiv);
-  $('.sunbeams').append(sunRays);
+  $('.weather').append(sunny);
   document.body.style.background = 'linear-gradient(to bottom, #dbd3d8, #e4e0e2)';
 };
 
@@ -64,22 +56,15 @@ var PartlySunny = function () {
 
   cloud = ' <div class="cloud x1"></div>';
 
-  var sunRays = '';
-  var sunDiv = '<div class="sun"><div class="sunbeams"></div></div>';
-
-  sunRays = '<div class="sunRay s1"></div></div>';
-  sunRays += '<div class="sunRay s2"></div></div>';
-  sunRays += '<div class="sunRay s3"></div></div>';
-  sunRays += '<div class="sunRay s4"></div></div>';
-  sunRays += '<div class="sunRay s5"></div></div>';
-  sunRays += '<div class="sunRay s6"></div></div>';
+  var sunny = '';
+  var sunny = '<div class="svg-contain"><svg version="1.1" class="clear-sky-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 72.3 52.6" style="enable-background:new 0 0 72.3 52.6;" xml:space="preserve"><g><path class="sun" d="M50.8,25.7c0,7.9-6.4,14.4-14.4,14.4s-14.4-6.4-14.4-14.4s6.4-14.4,14.4-14.4S50.8,17.8,50.8,25.7z"/><path  class="line big-path line-1" d="M54.5,25.8h6"/><path class="line big-path line-2" d="M12.4,25.8h6"/><path class="line big-path line-3" d="M36.5,44.3v6"/><path class="line big-path line-4" d="M36.5,8.2v-6"/><path class="line big-path line-5" d="M23,38.8l-4.8,4.8"/><path class="line big-path line-6" d="M54.9,8.9L50,13.8"/><path class="line big-path line-7" d="M50,38.8l4.4,4.4"/><path class="line big-path line-8" d="M18.8,9.6l4.2,4.2"/></g></svg></div>';
 
   $('.weather').append(cloudsDiv);
   $('.clouds').append(cloud);
-  $('.cloud').append(sunDiv);
-  $('.sunbeams').append(sunRays);
-  document.querySelector('.sun').style.top = '-70px';
-  document.querySelector('.sun').style.left = '-50px';
+  $('.cloud').append(sunny);
+  document.querySelector('.clear-sky-svg').style.top = '-100px';
+  document.querySelector('.clear-sky-svg').style.width = '90%';
+  document.querySelector('.clear-sky-svg').style.left = '-50px';
   document.body.style.background = 'linear-gradient(to bottom, #c0babe, #c3bec0)';
 };
 
@@ -89,27 +74,20 @@ var MostlyCloudy = function () {
 
   clouds = ' <div class="cloud x1"></div>';
 
-  var sunRays = '';
-  var sunDiv = '<div class="sun"><div class="sunbeams"></div></div>';
-
-  sunRays = '<div class="sunRay s1"></div></div>';
-  sunRays += '<div class="sunRay s2"></div></div>';
-  sunRays += '<div class="sunRay s3"></div></div>';
-  sunRays += '<div class="sunRay s4"></div></div>';
-  sunRays += '<div class="sunRay s5"></div></div>';
-  sunRays += '<div class="sunRay s6"></div></div>';
+  var sunny = '';
+  var sunny = '<div class="svg-contain"><svg version="1.1" class="clear-sky-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 72.3 52.6" style="enable-background:new 0 0 72.3 52.6;" xml:space="preserve"><g><path class="sun" d="M50.8,25.7c0,7.9-6.4,14.4-14.4,14.4s-14.4-6.4-14.4-14.4s6.4-14.4,14.4-14.4S50.8,17.8,50.8,25.7z"/><path  class="line big-path line-1" d="M54.5,25.8h6"/><path class="line big-path line-2" d="M12.4,25.8h6"/><path class="line big-path line-3" d="M36.5,44.3v6"/><path class="line big-path line-4" d="M36.5,8.2v-6"/><path class="line big-path line-5" d="M23,38.8l-4.8,4.8"/><path class="line big-path line-6" d="M54.9,8.9L50,13.8"/><path class="line big-path line-7" d="M50,38.8l4.4,4.4"/><path class="line big-path line-8" d="M18.8,9.6l4.2,4.2"/></g></svg></div>';
 
   $('.weather').append(cloudsDiv);
   $('.clouds').append(clouds);
-  $('.cloud').append(sunDiv);
-  $('.sunbeams').append(sunRays);
+  $('.cloud').append(sunny);
 
   clouds = '<div class="cloud x2"></div>';
   clouds += '<div class="cloud x3"></div>';
   $('.clouds').append(clouds);
 
-  document.querySelector('.sun').style.top = '-70px';
-  document.querySelector('.sun').style.left = '-20px';
+  document.querySelector('.clear-sky-svg').style.top = '-80px';
+  document.querySelector('.clear-sky-svg').style.left = '-20px';
+  document.querySelector('.clear-sky-svg').style.width = '90%';
   document.querySelector('.x2').style.top = '60px';
   document.querySelector('.x3').style.top = '-40px';
 
@@ -208,6 +186,11 @@ let showResultWeather = (queryResponse, queryL) => {
     weather.innerHTML = '';
     PartlySunny();
   }
+  if (queryResponse[0].WeatherText == 'Mostly sunny') {
+    const weather = document.querySelector('.weather');
+    weather.innerHTML = '';
+    PartlySunny();
+  }
   if (queryResponse[0].WeatherText == 'Sunny') {
     const weather = document.querySelector('.weather');
     weather.innerHTML = '';
@@ -268,7 +251,6 @@ function setup() {
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('**** Loaded ****');
-  // setup();
-  // click_btn();
-  PartlySunny();
+  setup();
+  click_btn();
 });

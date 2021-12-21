@@ -232,7 +232,6 @@ html {
   width: 80%;
   top: 85px;
   margin: 0 auto;
-  background-color: linear-gradient(to bottom, #a39da1, #9c9799);
 }
 
 .foglines {
@@ -348,64 +347,36 @@ html {
 }
 
 /* SUN */
-.sun {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto;
-  top: 80px;
-  border-radius: 50%;
+
+.clear-sky-svg {
+  width: 50%;
   position: relative;
-  background-color: #f4c042;
-  animation: rotate 50s infinite;
+  top: 70px;
+  left: 25%;
+  animation: expand 0.8s alternate-reverse infinite;
 }
-
-.sunRay {
-  width: 7px;
-  height: 30px;
-  border-radius: 10px;
-  background: #ffde00;
-  box-shadow: var(--global-box-shadow-sun);
-  position: absolute;
+.clear-sky-svg .sun {
+  fill: #e9c675;
 }
-
-.s1 {
-  transform: rotate(0deg);
-  top: -20px;
-  left: 63px;
+.clear-sky-svg .line {
+  stroke: #e9c675;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-dasharray: 7;
+  animation: dash 0.8s alternate-reverse infinite, fadeIn 1s forwards;
 }
-.s2 {
-  transform: rotate(60deg);
-  top: 10px;
-  left: 120px;
+.clear-sky-svg .line-1,
+.clear-sky-svg .line-3,
+.clear-sky-svg .line-5,
+.clear-sky-svg .line-7,
+.clear-sky-svg .line-4 {
+  stroke-dashoffset: 5;
+  animation-delay: 0.3s;
 }
-.s3 {
-  transform: rotate(120deg);
-  top: 80px;
-  left: 125px;
-}
-.s4 {
-  transform: rotate(180deg);
-  top: 120px;
-  left: 63px;
-}
-
-.s5 {
-  transform: rotate(-60deg);
-  top: 10px;
-  left: 5px;
-}
-.s6 {
-  transform: rotate(-120deg);
-  top: 80px;
-  left: 0px;
-}
-
-.sunbeams {
-  top: -25px;
-  left: -25px;
-  position: absolute;
-  transform-origin: 50% 100%;
-  animation: grow 10s linear 0s infinite;
+.clear-sky-svg .line-2,
+.clear-sky-svg .line-6,
+.clear-sky-svg .line-8 {
+  stroke-dashoffset: -5;
 }
 
 /* KEYFRAMES */
@@ -483,6 +454,17 @@ html {
   }
   100% {
     left: 100px;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes expand {
+  to {
+    transform: scale(1.1);
   }
 }
 
